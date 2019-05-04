@@ -1,4 +1,4 @@
-package com.bydeone.vipcall.controllers;
+package com.bydeone.vipcall.controllers.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
