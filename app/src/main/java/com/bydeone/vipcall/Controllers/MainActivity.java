@@ -1,7 +1,9 @@
-package com.bydeone.vipcall;
+package com.bydeone.vipcall.Controllers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.bydeone.vipcall.R;
 
 public class MainActivity extends AppCompatActivity {
 
