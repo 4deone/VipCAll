@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "25529158037-21jj7idsusfaf7e47b9c6rla2f4dh28g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bydeone.vipcall",
+            "certificate_hash": "8be2c84d9b2f6bfba74bd9dc9d5c77868f96ff80"
+          }
+        },
+        {
           "client_id": "25529158037-k6aa18t9tv4m1hio747qfvk2s58sacvf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

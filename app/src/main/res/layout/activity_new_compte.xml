@@ -18,6 +18,8 @@
             android:id="@+id/edtvEmailLogin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginVertical="2dp"
+            android:layout_marginHorizontal="2dp"
             android:inputType="textEmailAddress"
             android:layout_weight="1"
             android:hint="Entrer Votre adresse mail"/>
@@ -26,6 +28,8 @@
             android:id="@+id/edtvPasswordLogin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginVertical="2dp"
+            android:layout_marginHorizontal="2dp"
             android:inputType="textPassword"
             android:layout_weight="1"
             android:hint="Entrer Votre adresse mail"/>
@@ -34,6 +38,8 @@
             android:id="@+id/edtvNameLogin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginVertical="2dp"
+            android:layout_marginHorizontal="2dp"
             android:inputType="textPassword"
             android:layout_weight="1"
             android:hint="Entrer Votre adresse mail"/>
@@ -42,6 +48,8 @@
             android:id="@+id/edtvTelephoneLogin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginVertical="2dp"
+            android:layout_marginHorizontal="2dp"
             android:inputType="textPassword"
             android:layout_weight="1"
             android:hint="Entrer Votre adresse mail"/>
@@ -50,6 +58,8 @@
             android:id="@+id/edtvConfirmPasswordLogin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginVertical="2dp"
+            android:layout_marginHorizontal="2dp"
             android:inputType="textPassword"
             android:layout_weight="1"
             android:hint="Entrer Votre adresse mail"/>
@@ -58,6 +68,8 @@
             android:id="@+id/chbAcceptConditionLogin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginVertical="2dp"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1"
             android:text="I accept all conditions"/>
 
