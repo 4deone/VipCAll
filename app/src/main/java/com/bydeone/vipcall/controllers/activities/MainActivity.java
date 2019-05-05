@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == butConnexion){
+            finish();
             startActivity(new Intent(MainActivity.this, HomeActivity.class));
         }
     }

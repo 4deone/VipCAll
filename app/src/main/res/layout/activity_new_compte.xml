@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".controllers.activities.NewCompteActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edtvEmailLogin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress"
+            android:layout_weight="1"
+            android:hint="Entrer Votre adresse mail"/>
+
+        <EditText
+            android:id="@+id/edtvPasswordLogin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:layout_weight="1"
+            android:hint="Entrer Votre adresse mail"/>
+
+        <EditText
+            android:id="@+id/edtvNameLogin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:layout_weight="1"
+            android:hint="Entrer Votre adresse mail"/>
+
+        <EditText
+            android:id="@+id/edtvTelephoneLogin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:layout_weight="1"
+            android:hint="Entrer Votre adresse mail"/>
+
+        <EditText
+            android:id="@+id/edtvConfirmPasswordLogin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:layout_weight="1"
+            android:hint="Entrer Votre adresse mail"/>
+
+        <CheckBox
+            android:id="@+id/chbAcceptConditionLogin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="I accept all conditions"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="7"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btCancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="ANNULER"/>
+
+        <Button
+            android:id="@+id/btSave"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="ENREGISTRER"/>
+
+    </LinearLayout>
+
+</LinearLayout>

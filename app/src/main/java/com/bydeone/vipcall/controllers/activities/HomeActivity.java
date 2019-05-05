@@ -1,5 +1,6 @@
 package com.bydeone.vipcall.controllers.activities;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -61,7 +62,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
@@ -74,6 +74,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.activity_main_drawer_profile:
                 break;
             case R.id.activity_main_drawer_settings:
+                break;
+            case R.id.activity_main_drawer_log_out:
+                finish();
+                startActivity(new Intent(HomeActivity.this, MainActivity.class));
+                break;
+            case R.id.activity_main_drawer_password:
                 break;
             default:
                 break;
