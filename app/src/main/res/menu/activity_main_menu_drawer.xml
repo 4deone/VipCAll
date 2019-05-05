@@ -18,6 +18,10 @@
                     android:icon="@drawable/user"
                     android:title="Profil" />
                 <item
+                    android:id="@+id/activity_main_drawer_password"
+                    android:icon="@drawable/password"
+                    android:title="Password" />
+                <item
                     android:id="@+id/activity_main_drawer_settings"
                     android:icon="@drawable/settings"
                     android:title="Paramètres" />
