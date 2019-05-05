@@ -98,10 +98,10 @@ public class NewCompteActivity extends AppCompatActivity implements View.OnClick
 
     private void registerUser() {
         String email = edtvEmailLogin.getText().toString().trim();
-        String password = edtvEmailLogin.getText().toString().trim();
-        String confirmPassword = edtvEmailLogin.getText().toString().trim();
-        String name = edtvEmailLogin.getText().toString().trim();
-        String telphone = edtvEmailLogin.getText().toString().trim();
+        String password = edtvPasswordLogin.getText().toString().trim();
+        String confirmPassword = edtvConfirmPasswordLogin.getText().toString().trim();
+        String name = edtvNameLogin.getText().toString().trim();
+        String telphone = edtvTelephoneLogin.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)){
             Toast.makeText(this, "SVP entrer votre Email", Toast.LENGTH_SHORT).show();
