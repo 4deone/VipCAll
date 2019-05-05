@@ -53,7 +53,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/bydeone/vipcall/controllers/fragments/CampagneFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/bydeone/vipcall/controllers/fragments/NewsFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/bydeone/vipcall/controllers/fragments/PageFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/bydeone/vipcall/controllers/fragments/UsersFragment.java">
           <value>
             <set />
           </value>

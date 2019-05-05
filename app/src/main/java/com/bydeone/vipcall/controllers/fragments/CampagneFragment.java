@@ -15,15 +15,12 @@ import com.bydeone.vipcall.R;
 public class CampagneFragment extends Fragment {
 
 
-    public CampagneFragment() {
-        // Required empty public constructor
+    public static CampagneFragment newInstance() {
+        return (new CampagneFragment());
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_campagne, container, false);
     }
 

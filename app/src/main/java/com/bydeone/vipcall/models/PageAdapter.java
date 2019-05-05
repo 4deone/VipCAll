@@ -4,32 +4,48 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.bydeone.vipcall.controllers.fragments.PageFragment;
+import com.bydeone.vipcall.controllers.fragments.CampagneFragment;
+import com.bydeone.vipcall.controllers.fragments.NewsFragment;
+import com.bydeone.vipcall.controllers.fragments.UsersFragment;
+
 
 public class PageAdapter extends FragmentPagerAdapter {
 
-    // 1 - Array of colors that will be passed to PageFragment
-    private int[] colors;
-
-    // 2 - Default Constructor
-    public PageAdapter(FragmentManager mgr, int[] colors) {
+    //Default Constructor
+    public PageAdapter(FragmentManager mgr) {
         super(mgr);
-        this.colors = colors;
     }
 
     @Override
     public int getCount() {
-        return(5); // 3 - Number of page to show
+        return(3);
     }
 
     @Override
     public Fragment getItem(int position) {
-        // 4 - Page to return
-        return(PageFragment.newInstance(position, this.colors[position]));
+        switch (position){
+            case 0: //Page number 1
+                return NewsFragment.newInstance();
+            case 1: //Page number 2
+                return UsersFragment.newInstance();
+            case 2: //Page number 3
+                return CampagneFragment.newInstance();
+            default:
+                return null;
+        }
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return "Page "+position;
+        switch (position){
+            case 0: //Page number 1
+                return "Fil d'actualité";
+            case 1: //Page number 2
+                return "Profil";
+            case 2: //Page number 3
+                return "Paramètre";
+            default:
+                return null;
+        }
     }
 }

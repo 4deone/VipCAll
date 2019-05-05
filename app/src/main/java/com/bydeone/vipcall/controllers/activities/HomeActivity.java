@@ -15,26 +15,15 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //3 - Configure ViewPager
-        //this.configureViewPager();
-
         //4 - Configure TableLayout
         this.configureViewPagerAndTabs();
-    }
-
-    private void configureViewPager(){
-        // 1 - Get ViewPager from layout
-        ViewPager pager = (ViewPager)findViewById(R.id.activity_main_viewpager);
-        // 2 - Set Adapter PageAdapter and glue it together
-        pager.setAdapter(new PageAdapter(getSupportFragmentManager(), getResources().getIntArray(R.array.colorPagesViewPager)) {
-        });
     }
 
     private void configureViewPagerAndTabs(){
         //Get ViewPager from layout
         ViewPager pager = (ViewPager)findViewById(R.id.activity_main_viewpager);
         //Set Adapter PageAdapter and glue it together
-        pager.setAdapter(new PageAdapter(getSupportFragmentManager(), getResources().getIntArray(R.array.colorPagesViewPager)));
+        pager.setAdapter(new PageAdapter(getSupportFragmentManager()));
 
         // 1 - Get TabLayout from layout
         TabLayout tabs= (TabLayout)findViewById(R.id.activity_main_tabs);

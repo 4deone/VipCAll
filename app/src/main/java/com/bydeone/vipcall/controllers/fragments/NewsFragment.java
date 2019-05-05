@@ -15,15 +15,12 @@ import com.bydeone.vipcall.R;
 public class NewsFragment extends Fragment {
 
 
-    public NewsFragment() {
-        // Required empty public constructor
+    public static NewsFragment newInstance() {
+        return (new NewsFragment());
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_news, container, false);
     }
 
