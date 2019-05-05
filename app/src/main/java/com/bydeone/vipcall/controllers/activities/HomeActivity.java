@@ -12,27 +12,46 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.bydeone.vipcall.R;
 import com.bydeone.vipcall.models.PageAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    //FOR DESIGN
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+
+    private TextView tvUserEmail;
+
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+        if (firebaseUser != null){
+            // Inscription du mail de l'utilisateur
+            tvUserEmail = (TextView)findViewById(R.id.tvUserEmail);
+            tvUserEmail.setText(firebaseUser.getEmail());
+            // Utilisation du mail de la photo de l'utilisateur
+        }else {
+            finish();
+            startActivity(new Intent(HomeActivity.this, MainActivity.class));
+        }
+
         //4 - Configure TableLayout
         this.configureViewPagerAndTabs();
 
         // 6 - Configure all views
-
         this.configureToolBar();
         this.configureDrawerLayout();
         this.configureNavigationView();
@@ -76,8 +95,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.activity_main_drawer_settings:
                 break;
             case R.id.activity_main_drawer_log_out:
-                finish();
-                startActivity(new Intent(HomeActivity.this, MainActivity.class));
+                userDeconnexion();
                 break;
             case R.id.activity_main_drawer_password:
                 break;
@@ -90,9 +108,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    // ---------------------
-    // CONFIGURATION
-    // ---------------------
+    private void userDeconnexion() {
+        firebaseAuth.signOut();
+        finish();
+        startActivity(new Intent(HomeActivity.this, MainActivity.class));
+    }
 
     // 1 - Configure Toolbar
     private void configureToolBar(){

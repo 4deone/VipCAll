@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
     android:background="#B2B9E1"
@@ -13,4 +14,17 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/vip_call_lagecy" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/imProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/user" />
+
+    <TextView
+        android:id="@+id/tvUserEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Votre Email" />
+
+
+</RelativeLayout>
