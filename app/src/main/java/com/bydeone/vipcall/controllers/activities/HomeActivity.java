@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bydeone.vipcall.R;
@@ -39,8 +40,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
         if (firebaseUser != null){
+            // Connexion au header de l'espace utilisateur
+            NavigationView navigationView = (NavigationView) findViewById(R.id.activity_main_nav_view);
+            View headerView = navigationView.getHeaderView(0);
             // Inscription du mail de l'utilisateur
-            tvUserEmail = (TextView)findViewById(R.id.tvUserEmail);
+            TextView tvUserEmail = (TextView) headerView.findViewById(R.id.tvUserEmail);
             tvUserEmail.setText(firebaseUser.getEmail());
             // Utilisation du mail de la photo de l'utilisateur
         }else {

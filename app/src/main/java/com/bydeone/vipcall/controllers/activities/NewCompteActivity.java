@@ -45,13 +45,16 @@ public class NewCompteActivity extends AppCompatActivity implements View.OnClick
 
         progressDialog = new ProgressDialog(this);
 
-        this.configureEmailLogin();
-        this.configurePasswordLogin();
-        this.configureNameLogin();
-        this.configureTelephoneLogin();
-        this.configureChecbooxAccept();
-        this.configureBoutonCancel();
-        this.configureBoutonSave();
+        edtvEmailLogin = (EditText) findViewById(R.id.edtvEmailLogin);
+        edtvPasswordLogin = (EditText) findViewById(R.id.edtvPasswordLogin);
+        edtvConfirmPasswordLogin = (EditText) findViewById(R.id.edtvConfirmPasswordLogin);
+        edtvNameLogin = (EditText) findViewById(R.id.edtvNameLogin);
+        edtvTelephoneLogin = (EditText) findViewById(R.id.edtvTelephoneLogin);
+        chbAcceptConditionLogin = (CheckBox) findViewById(R.id.chbAcceptConditionLogin);
+        btCancel = (Button) findViewById(R.id.btCancel);
+        btCancel.setOnClickListener(this);
+        btSave = (Button) findViewById(R.id.btSave);
+        btSave.setOnClickListener(this);
     }
 
     @Override
@@ -65,100 +68,6 @@ public class NewCompteActivity extends AppCompatActivity implements View.OnClick
     private void updateUI(FirebaseUser currentUser) {
     }
 
-    private void configureEmailLogin(){
-        this.edtvEmailLogin = (EditText) findViewById(R.id.edtvEmailLogin);
-    }
-
-    private void configurePasswordLogin(){
-        this.edtvPasswordLogin = (EditText) findViewById(R.id.edtvPasswordLogin);
-        this.edtvConfirmPasswordLogin = (EditText) findViewById(R.id.edtvConfirmPasswordLogin);
-    }
-
-    private void configureNameLogin(){
-        this.edtvNameLogin = (EditText) findViewById(R.id.edtvNameLogin);
-    }
-
-    private void configureTelephoneLogin(){
-        this.edtvTelephoneLogin = (EditText) findViewById(R.id.edtvTelephoneLogin);
-    }
-
-    private void configureChecbooxAccept(){
-        this.chbAcceptConditionLogin = (CheckBox) findViewById(R.id.chbAcceptConditionLogin);
-    }
-
-    private void configureBoutonCancel(){
-        this.btCancel = (Button) findViewById(R.id.btCancel);
-        this.btCancel.setOnClickListener(this);
-    }
-
-    private void configureBoutonSave(){
-        this.btSave = (Button) findViewById(R.id.btSave);
-        this.btSave.setOnClickListener(this);
-    }
-
-    private void registerUser() {
-        String email = edtvEmailLogin.getText().toString().trim();
-        String password = edtvPasswordLogin.getText().toString().trim();
-        String confirmPassword = edtvConfirmPasswordLogin.getText().toString().trim();
-        String name = edtvNameLogin.getText().toString().trim();
-        String telphone = edtvTelephoneLogin.getText().toString().trim();
-
-        if (TextUtils.isEmpty(email)){
-            Toast.makeText(this, "SVP entrer votre Email", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (TextUtils.isEmpty(password)){
-            Toast.makeText(this, "SVP entrer votre mot de passe", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (TextUtils.isEmpty(confirmPassword)){
-            Toast.makeText(this, "Confirme ton mot de passe", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (TextUtils.isEmpty(name)){
-            Toast.makeText(this, "SVP entrer votre Nom", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (TextUtils.isEmpty(telphone)){
-            Toast.makeText(this, "SVP entrer votre numero de téléphone", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (password != confirmPassword){
-            Toast.makeText(this, "Les mots de passe ne sont pas identiques", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // If validate OK
-        progressDialog.setMessage("Creation du compte encours...");
-        progressDialog.show();
-
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        progressDialog.dismiss();
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(NewCompteActivity.this, "Création de compte réussie", Toast.LENGTH_SHORT).show();
-                            finish();
-                            startActivity(new Intent(NewCompteActivity.this, MainActivity.class));
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(NewCompteActivity.this, "Création de compte échoué", Toast.LENGTH_SHORT).show();
-
-                        }
-
-                        // ...
-                    }
-                });
-
-       }
-
     @Override
     public void onClick(View v) {
 
@@ -166,7 +75,64 @@ public class NewCompteActivity extends AppCompatActivity implements View.OnClick
             finish();
             startActivity(new Intent(NewCompteActivity.this, MainActivity.class));
         }else if (v == btSave){
-            registerUser();
+
+            String email = edtvEmailLogin.getText().toString().trim();
+            String password = edtvPasswordLogin.getText().toString().trim();
+            String confirmPassword = edtvConfirmPasswordLogin.getText().toString().trim();
+            String name = edtvNameLogin.getText().toString().trim();
+            String telphone = edtvTelephoneLogin.getText().toString().trim();
+
+            if (TextUtils.isEmpty(email)){
+                Toast.makeText(this, "SVP entrer votre Email", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (TextUtils.isEmpty(password)){
+                Toast.makeText(this, "SVP entrer votre mot de passe", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (TextUtils.isEmpty(confirmPassword)){
+                Toast.makeText(this, "Confirme ton mot de passe", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (TextUtils.isEmpty(name)){
+                Toast.makeText(this, "SVP entrer votre Nom", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (TextUtils.isEmpty(telphone)){
+                Toast.makeText(this, "SVP entrer votre numero de téléphone", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            /*if (password != confirmPassword){
+                Toast.makeText(this, "Les mots de passe ne sont pas identiques", Toast.LENGTH_SHORT).show();
+                return;
+            }*/
+
+            // If validate OK
+            progressDialog.setMessage("Creation du compte encours...");
+            progressDialog.show();
+
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            progressDialog.dismiss();
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Toast.makeText(NewCompteActivity.this, "Création de compte réussie", Toast.LENGTH_SHORT).show();
+                                finish();
+                                startActivity(new Intent(NewCompteActivity.this, MainActivity.class));
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Toast.makeText(NewCompteActivity.this, "Création de compte échoué", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                    });
         }
     }
 
