@@ -21,7 +21,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button butConnexion;
-    private EditText edtvUserName, edtvPassWord;
+    private EditText edtvUserName;
+    private EditText edtvPassWord;
     private TextView tvSignUp;
 
     private FirebaseAuth firebaseAuth;

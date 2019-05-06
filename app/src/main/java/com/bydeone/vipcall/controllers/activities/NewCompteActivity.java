@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class NewCompteActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final int PICK_IMAGE_REQUEST = 99;
     private EditText edtvEmailLogin;
     private EditText edtvPasswordLogin;
     private EditText edtvNameLogin;
@@ -31,6 +33,8 @@ public class NewCompteActivity extends AppCompatActivity implements View.OnClick
     private CheckBox chbAcceptConditionLogin;
     private Button btCancel;
     private Button btSave;
+    private Button btAddUserPicture;
+    private ImageView imUserProfil;
     private ProgressDialog progressDialog;
 
     private FirebaseAuth mAuth;
@@ -44,7 +48,6 @@ public class NewCompteActivity extends AppCompatActivity implements View.OnClick
         mAuth = FirebaseAuth.getInstance();
 
         progressDialog = new ProgressDialog(this);
-
         edtvEmailLogin = (EditText) findViewById(R.id.edtvEmailLogin);
         edtvPasswordLogin = (EditText) findViewById(R.id.edtvPasswordLogin);
         edtvConfirmPasswordLogin = (EditText) findViewById(R.id.edtvConfirmPasswordLogin);
@@ -55,6 +58,9 @@ public class NewCompteActivity extends AppCompatActivity implements View.OnClick
         btCancel.setOnClickListener(this);
         btSave = (Button) findViewById(R.id.btSave);
         btSave.setOnClickListener(this);
+        btAddUserPicture = (Button) findViewById(R.id.btAddUserPicture);
+        btAddUserPicture.setOnClickListener(this);
+        imUserProfil = (ImageView) findViewById(R.id.imUserProfil);
     }
 
     @Override
@@ -133,6 +139,11 @@ public class NewCompteActivity extends AppCompatActivity implements View.OnClick
                             }
                         }
                     });
+        }else if (v == btAddUserPicture){
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent, "select image"), PICK_IMAGE_REQUEST);
         }
     }
 
